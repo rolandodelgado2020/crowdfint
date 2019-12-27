@@ -19,7 +19,7 @@
         <div class="card">
             <div class="card-header">Tablero</div>
             <div class="card-body">
-                ¡Bienvenido a EVPIU!
+                ¡Bienvenido a CROWDFINT!
             </div>
         </div>
     </div>
