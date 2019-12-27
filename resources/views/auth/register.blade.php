@@ -1,89 +1,64 @@
-@extends('layouts.app')
+@extends('layouts.auth')
+
+@section('title', 'Registrarse')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Registrar') }}</div>
+<div class="splash-container">
+    <form method="POST" action="{{ route('register') }}">
+        @csrf
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-1">Registro de usuario</h3>
+                <p>Por favor diligencia tu información para crearte una cuenta en la aplicación.</p>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <input id="name" type="text" class="form-control form-control-lg{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" placeholder="Tu nombre completo" required autofocus>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+                    @if ($errors->has('name'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('name') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <input id="email" type="email" class="form-control form-control-lg{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="Tu correo electrónico" required>
 
-                        <div class="form-group row">
-                            <label for="invApyNombre" class="col-md-4 col-form-label text-md-right">{{ __('Apellido y Nombre') }}</label>
+                    @if ($errors->has('email'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <input id="username" type="text" class="form-control form-control-lg{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" placeholder="Tu alias o nombre de usuario" required>
 
-                            <div class="col-md-6">
-                                <input id="invApyNombre" type="text" class="form-control @error('invApyNombre') is-invalid @enderror" name="invApyNombre" value="{{ old('invApyNombre') }}" required autocomplete="invApyNombre" autofocus>
+                    @if ($errors->has('username'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('username') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <input id="password" type="password" class="form-control form-control-lg{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="Tu contraseña" required>
 
-                                @error('invApyNombre')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="invCorreo" class="col-md-4 col-form-label text-md-right">{{ __('Correo') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="invCorreo" type="email" class="form-control @error('invCorreo') is-invalid @enderror" name="invCorreo" value="{{ old('invCorreo') }}" required autocomplete="invCorreo">
-
-                                @error('invCorreo')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="invCelular" class="col-md-4 col-form-label text-md-right">{{ __('Celular') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="invCelular" class="form-control @error('invCelular') is-invalid @enderror" name="invCelular" value="{{ old('invCelular') }}" required autocomplete="invCelular">
-
-                                @error('invCelular')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="invPassword" class="col-md-4 col-form-label text-md-right">{{ __('Clave') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="invPassword" type="invPassword" class="form-control @error('invPassword') is-invalid @enderror" name="invPassword" required autocomplete="new-invPassword">
-
-                                @error('invPassword')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Registrar') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    @if ($errors->has('password'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="form-group">
+                    <input id="password-confirm" type="password" class="form-control form-control-lg" name="password_confirmation"  placeholder="Confirma tu contraseña" required>
+                </div>
+                <div class="form-group pt-2">
+                    <button class="btn btn-block btn-primary" type="submit">¡Registrarme!</button>
                 </div>
             </div>
+            <div class="card-footer bg-white">
+                <p>¿Ya tenés una cuenta?, <a href="{{ route('login') }}" class="text-secondary">¡Entra aquí!</a></p>
+            </div>
         </div>
-    </div>
+    </form>
 </div>
 @endsection
