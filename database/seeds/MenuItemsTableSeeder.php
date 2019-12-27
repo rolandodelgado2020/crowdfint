@@ -18,7 +18,7 @@ class MenuItemsTableSeeder extends Seeder
         // Blog
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => 1,
-            'title'   => 'EVPIU Blog',
+            'title'   => 'CROWDFINT Blog',
             'url'     => '',
             'route'   => 'blog',
         ]);
@@ -370,7 +370,7 @@ class MenuItemsTableSeeder extends Seeder
         // Blog
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => 2,
-            'title'   => 'EVPIU Blog',
+            'title'   => 'CROWDFINT Blog',
             'url'     => '',
             'route'   => 'blog',
         ]);
