@@ -13,7 +13,7 @@ class MenuItemsTableSeeder extends Seeder
      */
     public function run()
     {
-        // Administrator
+        // Adminisstrator
 
         // Blog
         $menuItem = MenuItem::firstOrNew([
@@ -387,6 +387,13 @@ class MenuItemsTableSeeder extends Seeder
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => 2,
             'title'   => 'Tablero',
+            'url'     => '',
+            'route'   => 'home',
+        ]);
+         // Tablero
+         $menuItem = MenuItem::firstOrNew([
+            'menu_id' => 2,
+            'title'   => 'Salir',
             'url'     => '',
             'route'   => 'home',
         ]);
