@@ -115,6 +115,7 @@ class MenuItem extends Model
             'url'     => '',
             'route'   => 'home',
         ]);
+       
         if (!$menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
@@ -124,6 +125,20 @@ class MenuItem extends Model
             ])->save();
         }
 
+        $ProyectosmenuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu_id,
+            'title'   => 'Proyectos',
+            'url'     => '',
+            'route'   => 'home',
+        ]);
+        if (!$ProyectosmenuItem->exists) {
+            $ProyectosmenuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'fas fa-tachometer-alt',
+                'parent_id'  => null,
+                'order'      => 2,
+            ])->save();
+        }
         return $menuItem;
     }
 }
