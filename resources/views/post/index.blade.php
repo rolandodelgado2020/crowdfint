@@ -28,9 +28,9 @@
                                     <th>Título</th>
                                     <th>Subtitulo</th>
                                     <th>Estado</th>
-                                    <th>Posteado por</th>
+                                    <th>Creado por</th>
                                     <th>Creado en</th>
-                                    <th>Actualizado en</th>
+                                    <th>Fecha de actualizacion</th>
                                     <th></th>
                                 </tr>
                             </thead>
