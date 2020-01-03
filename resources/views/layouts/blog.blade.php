@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" type="image/png" href="{{ asset('/img/favicon_192x192.png') }}">
     <link rel="shortcut icon" sizes="192x192" href="{{ asset('/img/favicon_192x192.png') }}">
-    <title>{{ config('app.name') }}</title>
+    <title>{{ config('app.name', 'CROWDFINT') }}</title>
     <link href="{{ asset('/clean-blog/styles/app.css') }}" rel="stylesheet" type='text/css'>
 </head>
 <body>

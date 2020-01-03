@@ -6,7 +6,7 @@
 
 @section('module_title', 'Tablero')
 
-@section('subtitle', 'Aquí podrás ver diferentes estadísticas y gráficas basadas en tus intereses.')
+@section('subtitle', 'Aquí podrás ver historial de sus movimientos.')
 
 @section('breadcrumbs')
 {{ Breadcrumbs::render('dashboard') }}

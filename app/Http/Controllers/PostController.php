@@ -24,6 +24,7 @@ class PostController extends Controller
         $this->middleware('permission:posts.create', ['only' => ['create', 'store']]);
         $this->middleware('permission:posts.edit', ['only' => ['edit', 'update']]);
         $this->middleware('permission:posts.destroy', ['only' => ['destroy']]);
+        $this->middleware('permission:posts.invertir', ['only' => ['invertir']]);
     }
 
     /**

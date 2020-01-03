@@ -125,16 +125,17 @@ class MenuItem extends Model
             ])->save();
         }
 
-        $ProyectosmenuItem = MenuItem::firstOrNew([
+        $ProyectosmenuItem = MenuItem::firstOrNew([            
             'menu_id' => $menu_id,
             'title'   => 'Proyectos',
             'url'     => '',
-            'route'   => 'home',
+            'route'   => 'post.list',
+            
         ]);
         if (!$ProyectosmenuItem->exists) {
             $ProyectosmenuItem->fill([
                 'target'     => '_self',
-                'icon_class' => 'fas fa-tachometer-alt',
+                'icon_class' => 'fas fa-newspaper',
                 'parent_id'  => null,
                 'order'      => 2,
             ])->save();

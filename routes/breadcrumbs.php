@@ -5,6 +5,7 @@ Breadcrumbs::for('dashboard', function($trail) {
     $trail->push('Tablero', route('home'));
 });
 
+
 Breadcrumbs::for('tools', function($trail) {
     $trail->parent('dashboard');
     $trail->push('Herramientas');

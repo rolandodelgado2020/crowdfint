@@ -25,7 +25,7 @@ Menu ({{ $menu->name }})
             <section class="card card-fluid">
                 <h5 class="card-header drag-handle">Estructura del Menu ({{ $menu->name }})</h5>
                 <div class="dd" id="nestable">
-                    {!! evpiu_menu($menu->name, 'menu.items') !!}
+                {{ evpiu_menu(Auth::user()->username, 'menu.items')}}
                 </div>
             </section>
         </div>
