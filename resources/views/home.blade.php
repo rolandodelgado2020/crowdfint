@@ -17,9 +17,10 @@
 <div class="row justify-content-center">
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
         <div class="card">
-            <div class="card-header">Tablero</div>
+            <div class="card-header">Mi Tablero</div>
             <div class="card-body">
-                ¡Bienvenido a CROWDFINT!
+
+                <img src="{{ asset('/storage/users/tablero.png') }}">
             </div>
         </div>
     </div>
