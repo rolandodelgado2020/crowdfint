@@ -4,7 +4,7 @@
 
 @section('module_title', 'Publicaciones')
 
-@section('subtitle', 'Este módulo gestiona todas las publicaciones del blog de la aplicación.')
+@section('subtitle', 'Listado de Proyectos de inversion.')
 
 @section('breadcrumbs')
 {{ Breadcrumbs::render('posts') }}
@@ -26,7 +26,7 @@
                             <thead>
                                 <tr>
                                     <th>Título</th>
-                                    <th>Slug</th>
+                                    <th>Subtitulo</th>
                                     <th>Estado</th>
                                     <th>Posteado por</th>
                                     <th>Creado en</th>
@@ -53,6 +53,9 @@
                                         <div class="btn-group ml-auto float-right">
                                             <a href="{{ route('post', $post->slug) }}" class="btn btn-sm btn-outline-light">
                                                 <i class="fas fa-eye"></i> Ver
+                                            </a>
+                                            <a href="{{ route('post', $post->slug) }}" class="btn btn-sm btn-outline-light">
+                                                <i class="fas fa-edit"></i> Invertir
                                             </a>
                                             @can('posts.edit')
                                             <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-sm btn-outline-light edit">
