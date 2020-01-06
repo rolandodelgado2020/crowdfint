@@ -25,6 +25,7 @@ class PostController extends Controller
         $this->middleware('permission:posts.edit', ['only' => ['edit', 'update']]);
         $this->middleware('permission:posts.destroy', ['only' => ['destroy']]);
         $this->middleware('permission:posts.invertir', ['only' => ['invertir']]);
+        $this->middleware('permission:posts.payment', ['only' => ['payment']]);
     }
 
     /**
@@ -112,6 +113,25 @@ class PostController extends Controller
 
         return view('post.edit', compact('post', 'tags', 'categories'));
     }
+
+ /**
+     * @todo: Move CKEditor from CDN to Laravel Mix.
+     * Muestra el formulario para invertir en una publicación
+     * en específico.
+     *
+     * @param  \App\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function payment(Post $post)
+    {
+        $tags = Tag::all();
+        $categories = Category::all();
+
+        return view('post.payment', compact('post', 'tags', 'categories'));
+    }
+
+
+
 
     /**
      * @todo: Make throw exceptions.
