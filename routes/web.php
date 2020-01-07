@@ -13,16 +13,19 @@
 
 Route::get('/', 'BlogController@index')->name('blog');
 Route::get('/post/{post}', 'BlogController@post')->name('post');
+Route::get('/post/payment/{post}', 'PostController@payment')->name('posts.payment');
 Route::get('/post/tag/{tag}', 'BlogController@tag')->name('tag');
 Route::get('/post/category/{category}', 'BlogController@category')->name('category');
 
 Auth::routes();
-
-Route::middleware(['auth'])->group(function() {
+Route::group(
+    ['middleware' => ['role:user']],
+//Route::middleware(['auth'])->group(function() {
+    function () {
     // Dashboard
     Route::get('/home', 'HomeController@index')
-        ->name('home')
-        ->middleware('role:user');
+        ->name('home');
+       // ->middleware('role:user');
 
     Route::resource('roles', 'RoleController');
     Route::resource('permissions', 'PermissionController');

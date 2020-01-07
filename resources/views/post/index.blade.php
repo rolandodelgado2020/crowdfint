@@ -52,11 +52,13 @@
                                     <td>
                                         <div class="btn-group ml-auto float-right">
                                             <a href="{{ route('post', $post->slug) }}" class="btn btn-sm btn-outline-light">
-                                                <i class="fas fa-eye"></i> Ver
+                                             <i class="fas fa-eye"></i> Ver
                                             </a>
-                                            <a href="{{ route('post', $post->slug) }}" class="btn btn-sm btn-outline-light">
+                                            @can('posts.payment')
+                                            <a href="{{ route('posts.payment', $post->id) }}" class="btn btn-sm btn-outline-light">
                                                 <i class="fas fa-edit"></i> Invertir
                                             </a>
+                                            @endcan
                                             @can('posts.edit')
                                             <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-sm btn-outline-light edit">
                                                 <i class="far fa-edit"></i>
