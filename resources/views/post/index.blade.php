@@ -41,6 +41,7 @@
                                     <td>{{ $post->slug }}</td>
                                     <td>
                                         @if ($post->status == 1)
+                                        
                                         <span class="badge badge-success"><i class="fas fa-check"></i> Publicado</span>
                                         @else
                                         <span class="badge badge-brand"><i class="fas fa-exclamation-triangle"></i> Sin publicar</span>
@@ -54,16 +55,28 @@
                                             <a href="{{ route('post', $post->slug) }}" class="btn btn-sm btn-outline-light">
                                              <i class="fas fa-eye"></i> Ver
                                             </a>
-                                            @can('posts.payment')
-                                            <a href="{{ route('posts.payment', $post->id) }}" class="btn btn-sm btn-outline-light">
-                                                <i class="fas fa-edit"></i> Invertir
-                                            </a>
-                                            @endcan
+                                            @if ( $user->id_registracion_estado  == 2)
+                                           
+                                                @can('posts.payment')
+                                                <a href="{{ route('posts.payment', $post->id) }}" class="btn btn-sm btn-outline-light">
+                                                    <i class="fas fa-edit"></i> Invertir
+                                                </a>
+                                                @endcan
+
+                                           
+                                            @else
+                                                 @can('posts.registro_financiero')
+                                                <a href="{{ route('posts.registro_financiero', $user->id) }}" class="btn btn-sm btn-outline-light">
+                                                    <i class="fas fa-edit"></i> Invertir
+                                                </a>
+                                                @endcan
+                                            @endif
                                             @can('posts.edit')
                                             <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-sm btn-outline-light edit">
                                                 <i class="far fa-edit"></i>
                                             </a>
                                             @endcan
+                                           
                                             @can('posts.destroy')
                                             <div class="btn btn-sm btn-outline-light delete" data-id="{{ $post->id }}">
                                                 <i class="far fa-trash-alt"></i>

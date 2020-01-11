@@ -14,6 +14,7 @@
 Route::get('/', 'BlogController@index')->name('blog');
 Route::get('/post/{post}', 'BlogController@post')->name('post');
 Route::get('/post/payment/{post}', 'PostController@payment')->name('posts.payment');
+Route::get('/post/registro_financiero/{user}', 'PostController@registro_financiero')->name('posts.registro_financiero');
 Route::get('/post/tag/{tag}', 'BlogController@tag')->name('tag');
 Route::get('/post/category/{category}', 'BlogController@category')->name('category');
 

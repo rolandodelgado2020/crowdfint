@@ -2,16 +2,12 @@
 
 @section('page_title', 'Registro Financiero')
 
-@section('module_title', 'Registrar')
+@section('module_title', 'registro_financiero')
 
 @section('subtitle', 'Completa el registro financiero de un usuario inversor.')
 
-@section('breadcrumbs')
-{{ Breadcrumbs::render('post_edit', $post) }}
-@stop
-
 @section('content')
-@can('posts.edit')
+@can('posts.registro_financiero')
     <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="section-block" id="basicform">

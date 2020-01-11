@@ -127,9 +127,9 @@ class MenuItem extends Model
 
         $ProyectosmenuItem = MenuItem::firstOrNew([            
             'menu_id' => $menu_id,
-            'title'   => 'Proyectos',
+            'title'   => 'Mostrar Publicaciones',
             'url'     => '',
-            'route'   => 'post.list',
+            'route'   => 'posts.index',
             
         ]);
         if (!$ProyectosmenuItem->exists) {
