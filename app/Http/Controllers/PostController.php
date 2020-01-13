@@ -10,6 +10,14 @@ use App\Post;
 use App\Category;
 use App\Tag;
 
+
+use Illuminate\Database\Eloquent\Builder;
+use App\User;
+use App\Role;
+use App\Permission;
+use App\PermissionGroup;
+use App\Http\Requests\UserFormRequest;
+
 class PostController extends Controller
 {
     /**
@@ -24,8 +32,8 @@ class PostController extends Controller
         $this->middleware('permission:posts.create', ['only' => ['create', 'store']]);
         $this->middleware('permission:posts.edit', ['only' => ['edit', 'update']]);
         $this->middleware('permission:posts.destroy', ['only' => ['destroy']]);
-        //$this->middleware('permission:posts.invertir', ['only' => ['invertir','payment']]);
         $this->middleware('permission:posts.payment', ['only' => ['payment']]);
+        $this->middleware('permission:posts.registro_financiero', ['only' => ['registro_financiero']]);
     }
 
     /**
@@ -35,9 +43,10 @@ class PostController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
         $posts = Post::all();
 
-        return view('post.index', compact('posts'));
+        return view('post.index', compact('posts'),compact('user'));
     }
 
     /**
@@ -130,6 +139,13 @@ class PostController extends Controller
         return view('post.payment', compact('post', 'tags', 'categories'));
     }
 
+
+    public function registro_financiero()
+    {
+        $user = Auth::user();
+        $pais = Pais::all();      
+        return view('post.registro_financiero', compact('user','paises'));
+    }
 
 
 

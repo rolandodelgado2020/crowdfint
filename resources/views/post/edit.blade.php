@@ -98,16 +98,7 @@
                             </div>
                         </div>
                         @endif
-                        <div class="form-group">
-                            <label for="body">Contenido de la publicación</label>
-                            <textarea class="form-control {{ $errors->has('body') ? ' is-invalid' : '' }}" name="body" id="p_body">{{ $post->body }}</textarea>
-
-                            @if ($errors->has('body'))
-                            <div class="invalid-feedback">
-                                <strong>{{ $errors->first('body') }}</strong>
-                            </div>
-                            @endif
-                        </div>
+                     
                         <div class="row">
                             <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
                                 <label class="custom-control custom-checkbox">
