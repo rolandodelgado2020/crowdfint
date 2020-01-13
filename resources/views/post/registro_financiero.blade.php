@@ -64,6 +64,11 @@
                         <div class="form-group">
                             <label for="id_origen_fondos" class="col-form-label">Origen de Fondos</label>
                             <input id="id_origen_fondos" name="id_origen_fondos" type="text" class="form-control {{ $errors->has('id_origen_fondos') ? ' is-invalid' : '' }}" value="">
+                            <select class="form-control" name="paises" id="paises">
+                                    @foreach ($origenes_fondos as $Origen_Fondos)
+                                    <option value="{{$Origen_Fondos->id}}">{{$Origen_Fondos->nombre}}</option>
+                                     @endforeach
+                                </select>
 
                             @if ($errors->has('id_origen_fondos'))
                             <div class="invalid-feedback">
