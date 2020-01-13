@@ -62,19 +62,12 @@
                         <h5 class="card-header"></h5>         
                         <h5 class="card-header">Datos Financieros</h5>                
                         <div class="form-group">
-                            <label for="id_origen_fondos" class="col-form-label">Origen de Fondos</label>
-                            <input id="id_origen_fondos" name="id_origen_fondos" type="text" class="form-control {{ $errors->has('id_origen_fondos') ? ' is-invalid' : '' }}" value="">
-                            <select class="form-control" name="paises" id="paises">
-                                    @foreach ($origenes_fondos as $Origen_Fondos)
-                                    <option value="{{$Origen_Fondos->id}}">{{$Origen_Fondos->nombre}}</option>
+                            <label for="origenesfondos" class="col-form-label">Origen de Fondos</label>                           
+                            <select class="form-control" name="origenesfondos" id="origenesfondos">
+                                    @foreach ($origenesfondos as $origenfondos)
+                                    <option value="{{$origenfondos->id_origen_fondos}}">{{$origenfondos->nombre}}</option>
                                      @endforeach
                                 </select>
-
-                            @if ($errors->has('id_origen_fondos'))
-                            <div class="invalid-feedback">
-                                <strong>{{ $errors->first('id_origen_fondos') }}</strong>
-                            </div>
-                            @endif
                         </div>
                         <div class="form-group">
                             <label for="correo_paypal" class="col-form-label">Correo PayPal</label>

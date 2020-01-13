@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Builder;
 use App\User;
 use App\Role;
 use App\Pais;
-use App\Origen_Fondos;
+use App\Origenfondos;
 use App\Permission;
 use App\PermissionGroup;
 use App\Http\Requests\UserFormRequest;
@@ -146,9 +146,9 @@ class PostController extends Controller
     {
         $user = Auth::user();
         $paises = Pais::all();    
-        $origenes_fondos = Origen_Fondos::all();
+        $origenesfondos = Origenfondos::all();
 
-        return view('post.registro_financiero', compact('user','paises','origenes_fondos'));
+        return view('post.registro_financiero', compact('user','paises','origenesfondos'));
     }
 
 

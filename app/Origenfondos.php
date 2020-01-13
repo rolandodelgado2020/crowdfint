@@ -10,9 +10,10 @@ use Illuminate\Database\Eloquent\Model;
      * @var array $fillable
      */
     
-class Origen_Fondos extends Model
+class Origenfondos extends Model
 {
          protected $fillable = [
+             'id_origen_fondos',  
             'nombre',
             'descripcion'      
       ];
