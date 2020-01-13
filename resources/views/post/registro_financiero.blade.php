@@ -18,7 +18,7 @@
             <div class="card">
                 <h5 class="card-header">Datos Personales</h5>
                 <div class="card-body">
-                <form method="POST" action="{{ route('register') }}">
+                <form method="POST" action="{{ route('registro.financiero') }}">
                         @csrf
                         @method('put')
                         <div class="form-group">

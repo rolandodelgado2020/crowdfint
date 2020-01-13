@@ -17,6 +17,7 @@ use App\Role;
 use App\Pais;
 use App\Origenfondos;
 use App\Permission;
+use App\Registro_financiero;
 use App\PermissionGroup;
 use App\Http\Requests\UserFormRequest;
 
@@ -147,6 +148,7 @@ class PostController extends Controller
         $user = Auth::user();
         $paises = Pais::all();    
         $origenesfondos = Origenfondos::all();
+        $registros_financiero = Registro_financiero::all();
 
         return view('post.registro_financiero', compact('user','paises','origenesfondos'));
     }
@@ -168,6 +170,17 @@ class PostController extends Controller
             
         ]);
     }
+
+    public function registro_financiero_guardar(Registro_financiero $registro_financiero)
+    {
+        $user = Auth::user();
+        $paises = Pais::all();    
+        $origenesfondos = Origenfondos::all();
+
+        return view('post.registro_financiero', compact('user','paises','origenesfondos'));
+    }
+
+
 
     /**
      * @todo: Make throw exceptions.
