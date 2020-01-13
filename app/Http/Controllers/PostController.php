@@ -14,6 +14,7 @@ use App\Tag;
 use Illuminate\Database\Eloquent\Builder;
 use App\User;
 use App\Role;
+use App\Pais;
 use App\Permission;
 use App\PermissionGroup;
 use App\Http\Requests\UserFormRequest;
@@ -143,7 +144,7 @@ class PostController extends Controller
     public function registro_financiero()
     {
         $user = Auth::user();
-        $pais = Pais::all();      
+        $paises = Pais::all();      
         return view('post.registro_financiero', compact('user','paises'));
     }
 

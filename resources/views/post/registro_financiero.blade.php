@@ -6,7 +6,9 @@
 
 @section('content')
 @can('posts.registro_financiero')
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
     <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="section-block" id="basicform">
@@ -30,47 +32,32 @@
                             @endif
                         </div>
                         <div class="form-group">
-                            <label for="documento" class="col-form-label">Documento</label>
-                            <input id="p_documento" name="documento" type="text" class="form-control {{ $errors->has('documento') ? ' is-invalid' : '' }}" value="">
-
+                           <label for="documento" class="col-form-label">Documento</label>
+                           <input id="p_documento" name="documento" type="text" class="form-control {{ $errors->has('documento') ? ' is-invalid' : '' }}" value="">
                             @if ($errors->has('documento'))
-                            <div class="invalid-feedback">
-                                <strong>{{ $errors->first('documento') }}</strong>
-                            </div>
+                                <div class="invalid-feedback">
+                                    <strong>{{ $errors->first('documento') }}</strong>
+                                </div>
                             @endif
                         </div>
                         <div class="form-group">
-                            <label for="fechanacimiento" class="col-form-label">Fecha de Nacimiento</label>
-                            <input id="p_fechanacimiento" name="fechanacimiento" type="text" class="form-control {{ $errors->has('fechanacimiento') ? ' is-invalid' : '' }}" value="">
-
-                            @if ($errors->has('fechanacimiento'))
-                            <div class="invalid-feedback">
-                                <strong>{{ $errors->first('fechanacimiento') }}</strong>
+                            <div >
+                            <label for="documento" class="col-form-label">Fecha de Nacimiento</label>
+                             <input class="date form-control" type="text">
+                               
                             </div>
-                            @endif
                         </div>
                         <div class="form-group">
-                            <label for="paises" class="col-sm-2 control-label">Pais</label>
-
-                            <div class="col-sm-8">
+                            <label for="paises" class="col-form-label">Pais</label>
+                         
                                 <select class="form-control" name="paises" id="paises">
-
                                     @foreach ($paises as $pais)
                                     <option value="{{$pais->id}}">{{$pais->nombre}}</option>
                                      @endforeach
                                 </select>
+                        
                         </div>
-        </div>
-                        <div class="form-group">
-                            <label for="pais" class="col-form-label">Pais</label>
-                            <input id="p_pais" name="pais" type="text" class="form-control {{ $errors->has('pais') ? ' is-invalid' : '' }}" value="">
-
-                            @if ($errors->has('pais'))
-                            <div class="invalid-feedback">
-                                <strong>{{ $errors->first('pais') }}</strong>
-                            </div>
-                            @endif
-                        </div>
+                        
                         <h5 class="card-header"></h5>         
                         <h5 class="card-header"></h5>         
                         <h5 class="card-header">Datos Financieros</h5>                
@@ -166,4 +153,20 @@
     $('.select2').select2();
     CKEDITOR.replace( 'p_body' );
 </script>
+
+
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+  <script type="text/javascript">
+
+        $('.date').datepicker({  
+
+        format: 'dd-mm-yyyy',
+        language: "es",
+        autoclose: true
+        });  
+
+</script>  
 @endpush
