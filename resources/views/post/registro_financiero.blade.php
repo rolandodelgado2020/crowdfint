@@ -6,7 +6,7 @@
 
 @section('content')
 @can('posts.registro_financiero')
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
 
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
     <div class="row">
@@ -18,12 +18,12 @@
             <div class="card">
                 <h5 class="card-header">Datos Personales</h5>
                 <div class="card-body">
-                    <form action="" method="POST" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('register') }}">
                         @csrf
                         @method('put')
                         <div class="form-group">
                             <label for="apellidoynombre" class="col-form-label">Apellido y Nombre</label>
-                            <input id="p_apellidoynombre" name="apellidoynombre" type="text" class="form-control {{ $errors->has('apellidoynombre') ? ' is-invalid' : '' }}" value="">
+                            <input id="apellidoynombre" name="apellidoynombre" type="text" class="form-control {{ $errors->has('apellidoynombre') ? ' is-invalid' : '' }}" value="">
 
                             @if ($errors->has('apellidoynombre'))
                             <div class="invalid-feedback">
@@ -33,7 +33,7 @@
                         </div>
                         <div class="form-group">
                            <label for="documento" class="col-form-label">Documento</label>
-                           <input id="p_documento" name="documento" type="text" class="form-control {{ $errors->has('documento') ? ' is-invalid' : '' }}" value="">
+                           <input id="documento" name="documento" type="text" class="form-control {{ $errors->has('documento') ? ' is-invalid' : '' }}" value="">
                             @if ($errors->has('documento'))
                                 <div class="invalid-feedback">
                                     <strong>{{ $errors->first('documento') }}</strong>
@@ -56,8 +56,7 @@
                                      @endforeach
                                 </select>
                         
-                        </div>
-                        
+                        </div>                        
                         <h5 class="card-header"></h5>         
                         <h5 class="card-header"></h5>         
                         <h5 class="card-header">Datos Financieros</h5>                
@@ -71,11 +70,11 @@
                         </div>
                         <div class="form-group">
                             <label for="correo_paypal" class="col-form-label">Correo PayPal</label>
-                            <input id="correo_paypal" name="correo_paypal" type="text" class="form-control {{ $errors->has('correo_paypal') ? ' is-invalid' : '' }}" value="">
+                            <input id="correo_paypal" name="correo_paypal" type="text" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" value="">
 
-                            @if ($errors->has('correo_paypal'))
+                            @if ($errors->has('email'))
                             <div class="invalid-feedback">
-                                <strong>{{ $errors->first('correo_paypal') }}</strong>
+                                <strong>{{ $errors->first('email') }}</strong>
                             </div>
                             @endif
                         </div>

@@ -9,7 +9,7 @@ use App\Http\Requests\UpdatePostFormRequest;
 use App\Post;
 use App\Category;
 use App\Tag;
-
+use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Database\Eloquent\Builder;
 use App\User;
@@ -152,6 +152,22 @@ class PostController extends Controller
     }
 
 
+ /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'apellidoynombre' => ['required', 'string', 'max:255'],            
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'documento' => ['required', 'numeric', 'min:7', 'max:20', 'unique:users'],
+            'paises' => ['required', 'unique:users'],
+            
+        ]);
+    }
 
     /**
      * @todo: Make throw exceptions.
