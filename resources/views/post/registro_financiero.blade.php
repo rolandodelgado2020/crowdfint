@@ -18,7 +18,7 @@
             <div class="card">
                 <h5 class="card-header">Datos Personales</h5>
                 <div class="card-body">
-                <form method="POST" action="{{ route('registro.financiero') }}">
+                <form method="POST" action="{{ route('posts.registro_financiero_guardar') }}">
                         @csrf
                         @method('put')
                         <div class="form-group">
@@ -60,14 +60,7 @@
                         <h5 class="card-header"></h5>         
                         <h5 class="card-header"></h5>         
                         <h5 class="card-header">Datos Financieros</h5>                
-                        <div class="form-group">
-                            <label for="origenesfondos" class="col-form-label">Origen de Fondos</label>                           
-                            <select class="form-control" name="origenesfondos" id="origenesfondos">
-                                    @foreach ($origenesfondos as $origenfondos)
-                                    <option value="{{$origenfondos->id_origen_fondos}}">{{$origenfondos->nombre}}</option>
-                                     @endforeach
-                                </select>
-                        </div>
+                      
                         <div class="form-group">
                             <label for="correo_paypal" class="col-form-label">Correo PayPal</label>
                             <input id="correo_paypal" name="correo_paypal" type="text" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" value="">
@@ -98,7 +91,7 @@
                         </div>
                        
                         <div class="form-group">
-                            <label for="p_uploaded_image">Imagen actual</label>
+                            <label for="uploaded_image">Imagen actual</label>
                            
                         </div>
                         <div class="form-group">

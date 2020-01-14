@@ -17,7 +17,7 @@ Route::get('/post/payment/{post}', 'PostController@payment')->name('posts.paymen
 Route::get('/post/registro_financiero/{user}', 'PostController@registro_financiero')->name('posts.registro_financiero');
 Route::get('/post/tag/{tag}', 'BlogController@tag')->name('tag');
 Route::get('/post/category/{category}', 'BlogController@category')->name('category');
-Route::get('/post/registro_financiero_guardar/{registro_financiero}', 'BlogController@registro_financiero')->name('post.registro_financiero.guardar');
+Route::put('/post/registro_financiero_guardar', 'PostController@registro_financiero_guardar')->name('posts.registro_financiero_guardar');
 Auth::routes();
 Route::group(
     ['middleware' => ['role:user']],

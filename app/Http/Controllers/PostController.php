@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Database\Eloquent\Builder;
 use App\User;
+
+
 use App\Role;
 use App\Pais;
 use App\Origenfondos;
@@ -37,6 +39,7 @@ class PostController extends Controller
         $this->middleware('permission:posts.destroy', ['only' => ['destroy']]);
         $this->middleware('permission:posts.payment', ['only' => ['payment']]);
         $this->middleware('permission:posts.registro_financiero', ['only' => ['registro_financiero']]);
+        $this->middleware('permission:posts.registro_financiero_guardar', ['only' => ['registro_financiero_guardar']]);
     }
 
     /**
@@ -146,11 +149,10 @@ class PostController extends Controller
     public function registro_financiero()
     {
         $user = Auth::user();
-        $paises = Pais::all();    
-        $origenesfondos = Origenfondos::all();
+        $paises = Pais::all();  
         $registros_financiero = Registro_financiero::all();
 
-        return view('post.registro_financiero', compact('user','paises','origenesfondos'));
+        return view('post.registro_financiero', compact('user','paises'));
     }
 
 
@@ -171,13 +173,23 @@ class PostController extends Controller
         ]);
     }
 
-    public function registro_financiero_guardar(Registro_financiero $registro_financiero)
+    public function registro_financiero_guardar(Registro_financiero $registros_financiero)
     {
+        $formData = $request->all();
+        $formData['apellidoynombre']     = $request->input('apellidoynombre');
+        $formData['email']  = $request->input('email');
+        $formData['image']      = $path;
         $user = Auth::user();
-        $paises = Pais::all();    
-        $origenesfondos = Origenfondos::all();
+        $paises = Pais::all();      
 
-        return view('post.registro_financiero', compact('user','paises','origenesfondos'));
+
+        return redirect()
+        ->route('posts.index')
+        ->with([
+            'message'    => 'Datos actualizados con éxito.',
+            'alert-type' => 'success'
+        ]);
+        
     }
 
 
