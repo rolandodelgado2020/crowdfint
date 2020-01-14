@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CreatePostFormRequest;
+use App\Http\Requests\CreateRegistroFinancieroFormRequest;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Http\Requests\UpdatePostFormRequest;
 use App\Post;
@@ -170,12 +171,11 @@ class PostController extends Controller
             'id_pais' => ['required', 'unique:users'],
             'cuenta_bancaria_eeuu' => ['required', 'unique:users'],
             'politicamente_expuesta' => ['required', 'unique:users']
-          
             
         ]);
     }
 
-    public function registro_financiero_guardar(Registro_financiero $request)
+    public function registro_financiero_guardar(CreateRegistroFinancieroFormRequest $request)
     {
         $formData = $request->all();
         $rules =   [

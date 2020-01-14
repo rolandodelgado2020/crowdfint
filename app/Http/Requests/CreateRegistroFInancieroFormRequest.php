@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreatePostFormRequest extends FormRequest
+class CreateRegistroFinancieroFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,15 @@ class CreatePostFormRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'title'         => 'required|string|max:256',
-            'subtitle'      => 'required|string|max:100',
-            'slug'          => 'required|string|unique:posts,slug|max:100',
-            'body'          => 'required',
-            'image'         => 'required',
-            'categories'    => 'required',
-            'tags'          => 'required',
+        return [  
+            'apellidoynombre'         => 'required|string|max:256',
+            'correo_paypal'      => 'required|string|max:250',
+            'documento'          => 'required|string|unique:posts,max:100',
+            'cuenta_bancaria_eeuu'          => 'required',
+            'fecha_nacimiento'       => 'required',
+            'politicamente_expuesta'         => 'required',
+            'id_pais'    => 'required',
+            
         ];
     }
 }

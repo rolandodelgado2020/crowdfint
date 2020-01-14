@@ -42,15 +42,19 @@
                         </div>
                         <div class="form-group">
                             <div >
-                            <label for="documento" class="col-form-label">Fecha de Nacimiento</label>
-                             <input class="date form-control" type="text">
-                               
+                            <label for="fecha_nacimiento" class="col-form-label">Fecha de Nacimiento</label>
+                             <input class="date form-control" type="text" class="form-control {{ $errors->has('fecha_nacimiento') ? ' is-invalid' : '' }}">
+                             @if ($errors->has('fecha_nacimiento'))
+                                <div class="invalid-feedback">
+                                    <strong>{{ $errors->first('fecha_nacimiento') }}</strong>
+                                </div>
+                            @endif
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="paises" class="col-form-label">Pais</label>
+                            <label for="id_pais" class="col-form-label">Pais</label>
                          
-                                <select class="form-control" name="paises" id="paises">
+                                <select class="form-control" name="id_pais" id="id_pais">
                                     @foreach ($paises as $pais)
                                     <option value="{{$pais->id}}">{{$pais->nombre}}</option>
                                      @endforeach
@@ -63,7 +67,7 @@
                       
                         <div class="form-group">
                             <label for="correo_paypal" class="col-form-label">Correo PayPal</label>
-                            <input id="correo_paypal" name="correo_paypal" type="text" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" value="">
+                            <input id="correo_paypal" name="correo_paypal" type="text" class="form-control {{ $errors->has('correo_paypal') ? ' is-invalid' : '' }}" value="">
 
                             @if ($errors->has('correo_paypal'))
                             <div class="invalid-feedback">
@@ -73,7 +77,7 @@
                         </div>
                         <div class="form-group">
                             <label for="cuenta_bancaria_eeuu" class="col-form-label">Cuenta Bancaria en Estados Unidos</label>
-                            <input id="cuenta_bancaria_eeuu" name="correo_paypal" type="text" class="form-control {{ $errors->has('cuenta_bancaria_eeuu') ? ' is-invalid' : '' }}" value="">
+                            <input id="cuenta_bancaria_eeuu" name="cuenta_bancaria_eeuu" type="text" class="form-control {{ $errors->has('cuenta_bancaria_eeuu') ? ' is-invalid' : '' }}" value="">
 
                             @if ($errors->has('cuenta_bancaria_eeuu'))
                             <div class="invalid-feedback">
