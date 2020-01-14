@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CreatePostFormRequest;
+use Illuminate\Foundation\Http\FormRequest;
 use App\Http\Requests\UpdatePostFormRequest;
 use App\Post;
 use App\Category;
@@ -13,8 +14,6 @@ use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Database\Eloquent\Builder;
 use App\User;
-
-
 use App\Role;
 use App\Pais;
 use App\Origenfondos;
@@ -166,19 +165,33 @@ class PostController extends Controller
     {
         return Validator::make($data, [
             'apellidoynombre' => ['required', 'string', 'max:255'],            
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'correo_paypal' => ['required', 'string', 'correo_paypal', 'max:255', 'unique:users'],
             'documento' => ['required', 'numeric', 'min:7', 'max:20', 'unique:users'],
-            'paises' => ['required', 'unique:users'],
+            'id_pais' => ['required', 'unique:users'],
+            'cuenta_bancaria_eeuu' => ['required', 'unique:users'],
+            'politicamente_expuesta' => ['required', 'unique:users']
+          
             
         ]);
     }
 
-    public function registro_financiero_guardar(Registro_financiero $registros_financiero)
+    public function registro_financiero_guardar(Registro_financiero $request)
     {
         $formData = $request->all();
-        $formData['apellidoynombre']     = $request->input('apellidoynombre');
-        $formData['email']  = $request->input('email');
-        $formData['image']      = $path;
+        $rules =   [
+            'apellidoynombre' => 'required', 'string', 'max:255', 
+            
+        ];
+        $v = $this->validate($formData, $rules);
+        
+      //  $v = Validator::make($formData,$rules);
+        if ($v->fails())
+        {
+            return redirect()->back()
+            ->withErrors($v->errors());
+           
+
+        }
         $user = Auth::user();
         $paises = Pais::all();      
 

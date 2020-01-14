@@ -65,9 +65,9 @@
                             <label for="correo_paypal" class="col-form-label">Correo PayPal</label>
                             <input id="correo_paypal" name="correo_paypal" type="text" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" value="">
 
-                            @if ($errors->has('email'))
+                            @if ($errors->has('correo_paypal'))
                             <div class="invalid-feedback">
-                                <strong>{{ $errors->first('email') }}</strong>
+                                <strong>{{ $errors->first('correo_paypal') }}</strong>
                             </div>
                             @endif
                         </div>

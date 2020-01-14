@@ -13,8 +13,10 @@ use Illuminate\Database\Eloquent\Model;
 class Registro_financiero extends Model
 {
          protected $fillable = [
+            'apellidoynombre',
             'id_origen_fondos',
             'id_users',
+            'id_pais',
             'correo_paypal' ,
             'politicamente_expuesta',           
             'cuenta_bancaria_eeuu',
