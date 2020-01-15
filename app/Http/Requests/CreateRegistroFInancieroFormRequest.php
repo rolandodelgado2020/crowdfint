@@ -25,13 +25,13 @@ class CreateRegistroFinancieroFormRequest extends FormRequest
     public function rules()
     {
         return [  
-            'apellidoynombre'         => 'required|string|max:256',
+            'apellidoynombre'    => 'required|string|max:256',
             'correo_paypal'      => 'required|string|max:250',
-            'documento'          => 'required|string|unique:posts,max:100',
-            'cuenta_bancaria_eeuu'          => 'required',
-            'fecha_nacimiento'       => 'required',
-            'politicamente_expuesta'         => 'required',
-            'id_pais'    => 'required',
+            'documento'          => 'required|integer',
+            'cuenta_bancaria_eeuu'=> 'required',
+            'fecha_nacimiento'    => 'required',
+            'politicamente_expuesta' => 'required',
+            'id_pais'=> 'required',
             
         ];
     }

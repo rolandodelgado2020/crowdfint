@@ -156,46 +156,18 @@ class PostController extends Controller
     }
 
 
- /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'apellidoynombre' => ['required', 'string', 'max:255'],            
-            'correo_paypal' => ['required', 'string', 'correo_paypal', 'max:255', 'unique:users'],
-            'documento' => ['required', 'numeric', 'min:7', 'max:20', 'unique:users'],
-            'id_pais' => ['required', 'unique:users'],
-            'cuenta_bancaria_eeuu' => ['required', 'unique:users'],
-            'politicamente_expuesta' => ['required', 'unique:users']
-            
-        ]);
-    }
+ 
 
-    public function registro_financiero_guardar(CreateRegistroFinancieroFormRequest $request)
+    public function registro_financiero_guardar(CreateRegistroFinancieroFormRequest $request, User $user)
     {
         $formData = $request->all();
-        $rules =   [
-            'apellidoynombre' => 'required', 'string', 'max:255', 
-            
-        ];
-        $v = $this->validate($formData, $rules);
-        
-      //  $v = Validator::make($formData,$rules);
-        if ($v->fails())
-        {
-            return redirect()->back()
-            ->withErrors($v->errors());
-           
-
-        }
         $user = Auth::user();
-        $paises = Pais::all();      
-
-
+        $user->apellidoynombre    = $request->input('apellidoynombre') ;
+            $user->correo_paypal    = $request->input('correo_paypal') ;
+       
+      $user->save();
+       // $usuario->update($formData);
+       
         return redirect()
         ->route('posts.index')
         ->with([
