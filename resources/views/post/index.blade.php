@@ -2,13 +2,14 @@
 
 @section('page_title', 'Publicaciones')
 
-@section('module_title', 'Publicaciones')
+
 
 @section('subtitle', 'Listado de Proyectos de inversion.')
 
 @section('breadcrumbs')
 {{ Breadcrumbs::render('posts') }}
 @stop
+
 
 @section('content')
     @can('posts.create')
@@ -21,110 +22,101 @@
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="card">
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-striped table-bordered first">
-                            <thead>
-                                <tr>
-                                    <th>Título</th>
-                                    <th>Subtitulo</th>
-                                    <th>Estado</th>
-                                    <th>Creado por</th>
-                                    <th>Creado en</th>
-                                    <th>Fecha de actualizacion</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($posts as $post)
-                                <tr>
-                                    <td>{{ $post->title }}</td>
-                                    <td>{{ $post->slug }}</td>
-                                    <td>
-                                        @if ($post->status == 1)
-                                        
-                                        <span class="badge badge-success"><i class="fas fa-check"></i> Publicado</span>
-                                        @else
-                                        <span class="badge badge-brand"><i class="fas fa-exclamation-triangle"></i> Sin publicar</span>
-                                        @endif
-                                    </td>
-                                    <td>{{ $post->user->name }}</td>
-                                    <td>{{ $post->created_at->format('d M Y h:ia') }}</td>
-                                    <td>{{ $post->updated_at->format('d M Y h:ia') }}</td>
-                                    <td>
-                                        <div class="btn-group ml-auto float-right">
-                                            <a href="{{ route('post', $post->slug) }}" class="btn btn-sm btn-outline-light">
-                                             <i class="fas fa-eye"></i> Ver
-                                            </a>
-                                            @if ( $user->id_registracion_estado  == 2)
-                                           
-                                                @can('posts.payment')
-                                                <a href="{{ route('posts.payment', $post->id) }}" class="btn btn-sm btn-outline-light">
-                                                    <i class="fas fa-edit"></i> Invertir
-                                                </a>
-                                                @endcan
+                   
+                        
+                            <div class="row">
+                                <div class="preamble col s12 wow fadeIn" data-wow-duration="0.7s" style="visibility: visible; animation-duration: 0.7s; animation-name: fadeIn;">
+                                    <h2>Proyectos Inmobiliarios <span class="heading-divider"></span></h2>
+                                </div>
+                            </div>
+											<div class="container">					
+												<div class="card-deck mb-3 text-center">
+													
+														<div class="container">	
+															<div class="row align-items-start">
+															@php ($cant = 0)
+															@foreach($posts as $post)
+															@if ($cant == 3)
+															</div>
+															</div>
+															<div class="container">	
+															<div class="row align-items-start">
+															@php ($cant = 0)
+															@endif
+																<div class="card mb-4 shadow-sm">
+																	<div class="card-header">
+																		<h4 class="my-0 font-weight-normal  bg-info">{{ $post->title }}</h4>
+																	</div>
 
-                                           
-                                            @else
-                                                 @can('posts.registro_financiero')
-                                                <a href="{{ route('posts.registro_financiero', $user->id) }}" class="btn btn-sm btn-outline-light">
-                                                    <i class="fas fa-edit"></i> Invertir
-                                                </a>
-                                                @endcan
-                                            @endif
-                                            @can('posts.edit')
-                                            <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-sm btn-outline-light edit">
-                                                <i class="far fa-edit"></i>
-                                            </a>
-                                            @endcan
-                                           
-                                            @can('posts.destroy')
-                                            <div class="btn btn-sm btn-outline-light delete" data-id="{{ $post->id }}">
-                                                <i class="far fa-trash-alt"></i>
-                                            </div>
-                                            @endcan
-                                        </div>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+																	<div class="card-body">
+																	<img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x250]" style="height: 250px; width: 100%; display: block;" src="{{ asset( '/img/'.$post->image ) }}" data-holder-rendered="true">
+
+																	
+																		<h1 class="card-title pricing-card-title">$40 - 30 %</small></h1>
+																		<ul class="list-unstyled mt-3 mb-4">
+																		<li>{{ $post->subtitle }}</li>
+																		<li>{{ $post->slug }}</li>
+																		<li>{{ $post->slug }}</li>
+																		<li>{{ $post->slgu }}</li>
+																		</ul>
+
+																		<div class="btn-group ml-auto">
+																			<a href="{{ route('post', $post->slug) }}" class="btn btn-sm btn-outline-light">
+																			<button type="button" class="btn btn-primary">MAS INFO</button>
+																			</a>
+																		@if ( $user->id_registracion_estado  == 2)
+																	
+																			@can('posts.payment')
+																			<a href="{{ route('posts.payment', $post->id) }}" class="btn btn-sm btn-outline-light">
+																				<i class="fas fa-edit"></i> Invertir
+																			</a>
+																			@endcan                                           
+																		@else
+																			@can('posts.registro_financiero')
+																			<a href="{{ route('posts.registro_financiero', $user->id) }}" class="btn btn-sm btn-outline-light">
+																			<button type="button" class="btn btn-primary">INVERTIR</button>
+																			</a>
+																			@endcan
+																		@endif                                           
+                                        								</div>
+
+																		
+																	</div>
+																</div>
+																
+																
+																
+															
+																@php ($cant = $cant +1)
+
+																@endforeach		
+															</div>	
+														</div>			
+												
+												</div>
+											</div>
+
+
+
+				
+			
+								
+                               
         </div>
     </div>
 
-    @can('posts.destroy')
-    <div class="modal modal-danger fade" tabindex="-1" id="delete_modal" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title"><i class="fas fa-trash"></i> Eliminar publicación</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>¿Estás seguro de que deseas eliminar esta publicación?</p>
-                </div>
-                <div class="modal-footer">
-                    <form action="#" id="delete_form" method="POST">
-                        @csrf
-                        @method('delete')
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <input type="submit" class="btn btn-danger delete-confirm"
-                               value="Sí, eliminar esta publicación">
-                    </form>
+    
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-    @endcan
+  
 @stop
 
-@push('javascript')
-    <!-- DataTables -->
+@push('javascript')  
+
     <script>
+ <!-- DataTables -->
         $(document).ready(function () {
             $('.table').DataTable({
                 "order": [],
@@ -146,4 +138,6 @@
             $('#delete_modal').modal('show');
         });
     </script>
+	}
+	
 @endpush
