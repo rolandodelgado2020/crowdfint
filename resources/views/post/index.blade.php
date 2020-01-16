@@ -45,20 +45,20 @@
 															@endif
 																<div class="card mb-4 shadow-sm">
 																	<div class="card-header">
-																		<h4 class="my-0 font-weight-normal  bg-info">{{ $post->title }}</h4>
+																		<h4 class="card-title text-white bg-success ">{{ $post->title }}</h4>
 																	</div>
 
 																	<div class="card-body">
 																	<img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x250]" style="height: 250px; width: 100%; display: block;" src="{{ asset( '/img/'.$post->image ) }}" data-holder-rendered="true">
-
-																	
-																		<h1 class="card-title pricing-card-title">$40 - 30 %</small></h1>
+																	<h1></h1>
+																	<h1 class="card-subtitle mb-2  text-muted">{{ $post->slug }}</h4>
+																	<h1></h1>
+																		<h1 class="card-title "> {{ $post->porcentaje }} % </h1>
+																		
 																		<ul class="list-unstyled mt-3 mb-4">
-																		<li>{{ $post->subtitle }}</li>
-																		<li>{{ $post->slug }}</li>
-																		<li>{{ $post->slug }}</li>
-																		<li>{{ $post->slgu }}</li>
-																		</ul>
+																		<h1 class="card-subtitle mb-2 ">{{ $post->subtitle }}</h1>
+																		<h1></h1>
+																		<h1 class="card-subtitle mb-2 ">{{ $post->meses }} MESES</h1>
 
 																		<div class="btn-group ml-auto">
 																			<a href="{{ route('post', $post->slug) }}" class="btn btn-sm btn-outline-light">
