@@ -53,12 +53,13 @@
 																	<h1></h1>
 																	<h1 class="card-subtitle mb-2  text-muted">{{ $post->slug }}</h4>
 																	<h1></h1>
-																		<h1 class="card-title "> {{ $post->porcentaje }} % </h1>
+																		<h1 class="card-title "> {{ $post->porcentaje }}  % </h1>
 																		
 																		<ul class="list-unstyled mt-3 mb-4">
 																		<h1 class="card-subtitle mb-2 ">{{ $post->subtitle }}</h1>
 																		<h1></h1>
 																		<h1 class="card-subtitle mb-2 ">{{ $post->meses }} MESES</h1>
+
 
 																		<div class="btn-group ml-auto">
 																			<a href="{{ route('post', $post->slug) }}" class="btn btn-sm btn-outline-light">
