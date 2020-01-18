@@ -533,27 +533,3 @@
 </body>
 
 </html>
-
-@extends('layouts.blog')
-
-
-@section('content')
-<div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
-        @if($posts->isEmpty())
-            <div class="post-preview">
-                <p>Aún no hay artículos para mostrar. 😔</p>
-            </div>
-        @else
-        @foreach ($posts as $post)
-       
-        <hr>
-        @endforeach
-        <!-- Pager -->
-        <div class="clearfix">
-        {{ $posts->links() }}
-        </div>
-        @endif
-    </div>
-</div>
-@stop
