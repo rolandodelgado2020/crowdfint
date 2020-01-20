@@ -3,15 +3,23 @@
 @section('bg-img', Storage::disk('local')->url($post->image))
 
 @section('header')
-<div class="post-heading noselect">
-    <h1>{{ $post->title }}</h1>
-    <h2 class="subheading">{{ $post->subtitle }}</h2>
+<div>
+<h1 style="color: light; font-size: 26px;">Proyecto</h1>
+<h1 style="color: white; font-size: 146px;">{{ $post->title }}</h1>
+<h1 class="display-1">Proyecto:</h1>
+<p>Texto del ejemplo</p>
+<h1 class="display-2">Ejemplo h1 display-2</h1>
+<p>Texto del ejemplo</p>
+<h1 class="display-3">Ejemplo h1 display-3</h1>
+<p>Texto del ejemplo</p>
+<h1 class="display-4">Ejemplo h1 display-4</h1>
+<p>Texto del ejemplo</p>
+    <h2 cla"subheadss=ing">{{ $post->subtitle }}</h2>
     <span class="meta">
-        Posteado por <a href="javascript:void(0)">{{ $post->user->name }}</a>
-        {{ $post->created_at->diffForHumans() }}
+      {{ $post->created_at->diffForHumans() }}
     </span>
     @foreach ($post->categories as $category)
-        <a href="{{ route('category', $category->slug) }}" class="badge badge-pill badge-primary">{{ $category->name }}</a>
+             <a href="{{ $post->title }}"   class="badge badge-pill badge-primary">{{ $post->ubicacion }}</a>
     @endforeach
 </div>
 @stop
