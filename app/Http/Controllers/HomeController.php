@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 
+use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Builder;
+use App\User_saldos;
+use DB;
 class HomeController extends Controller
 {
     /**
@@ -15,14 +20,43 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
-
+    public function Saldo()
+    {
+        return $this->hasOne('App\User_saldos');
+    }
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    public function User_saldos()
+    {
+        $id=Auth::user()->id;
+        $data=DB::table('user_saldos')
+        ->select('user_saldos.disponible','user_saldos.saldo_dolar','user_saldos.saldo_invertido')
+        ->join('users','users.id','=','user_saldos.id_user')
+        ->where('users.id', $id)
+        ->get();
+
+        //return view('home');
+    }
     public function index()
     {
-        return view('home');
+        $id=Auth::user()->id;
+        $data=DB::table('user_saldos')
+        ->select('user_saldos.disponible','user_saldos.saldo_dolar','user_saldos.saldo_invertido')
+        ->join('users','users.id','=','user_saldos.id_user')
+        ->where('users.id', $id)
+        ->get();
+
+        $miactividad=DB::table('user_movimientos')
+        ->select('tipo_movimiento.nombre','user_movimientos.id_tipo_movimiento','user_movimientos.fecha_movimiento','user_movimientos.monto_usd')
+        ->join('users','users.id','=','user_movimientos.id_user')
+        ->join('tipo_movimiento','tipo_movimiento.id_tipo','=','user_movimientos.id_tipo_movimiento')
+        ->where('users.id', $id)
+        ->get();
+
+        return view('home',compact('data','miactividad'));
     }
+    
 }

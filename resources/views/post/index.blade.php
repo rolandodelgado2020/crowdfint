@@ -6,9 +6,7 @@
 
 @section('subtitle', 'Listado de Proyectos de inversion.')
 
-@section('breadcrumbs')
-{{ Breadcrumbs::render('posts') }}
-@stop
+
 
 
 @section('content')

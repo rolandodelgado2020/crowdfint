@@ -165,7 +165,7 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (30, 5, 'Mostrar publicaciones\r\n', '', '_self', 'fas fa-newspaper', NULL, NULL, 2, '2020-01-02 21:35:40', '2020-01-02 21:35:40', 'posts.index', NULL),
 (32, 6, 'Tablero', '', '_self', 'fas fa-tachometer-alt', NULL, NULL, 1, '2020-01-07 17:37:24', '2020-01-07 17:37:24', 'home', NULL),
 (33, 3, 'Proyectos', '', '_self', 'fas fa-newspaper', NULL, NULL, 2, '2020-01-07 17:37:24', '2020-01-07 17:37:24', 'post.list', NULL),
-(34, 7, 'Tablero', '', '_self', 'fas fa-tachometer-alt', NULL, NULL, 1, '2020-01-11 02:51:15', '2020-01-11 02:51:15', 'home', NULL),
+(34, 7, '', '', '_self', 'fas fa-tachometer-alt', NULL, NULL, 1, '2020-01-11 02:51:15', '2020-01-11 02:51:15', 'home', NULL),
 (35, 7, 'Proyectos', '', '_self', 'fas fa-newspaper', NULL, NULL, 2, '2020-01-11 02:51:15', '2020-01-11 02:51:15', 'post.list', NULL),
 (36, 8, 'Tablero', '', '_self', 'fas fa-tachometer-alt', NULL, NULL, 1, '2020-01-11 03:14:03', '2020-01-11 03:14:03', 'home', NULL),
 (37, 8, 'Proyectos', 'posts.list', '_self', 'fas fa-newspaper', NULL, NULL, 2, '2020-01-11 03:14:03', '2020-01-11 03:14:03', 'posts.list', NULL),

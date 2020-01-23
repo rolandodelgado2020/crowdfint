@@ -10,6 +10,7 @@ use App\Role;
 use App\Permission;
 use App\PermissionGroup;
 use App\Http\Requests\UserFormRequest;
+use App\User_saldos;
 
 class UserController extends Controller
 {
@@ -75,6 +76,7 @@ class UserController extends Controller
         return view('users.show', compact('user', 'userPermissions'));
     }
 
+    
     /**
      * Muestra el formulario para editar la información de un
      * usuario en específico.

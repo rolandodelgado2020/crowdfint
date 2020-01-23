@@ -18,6 +18,7 @@ Route::get('/post/registro_financiero/{user}', 'PostController@registro_financie
 Route::get('/post/tag/{tag}', 'BlogController@tag')->name('tag');
 Route::get('/post/category/{category}', 'BlogController@category')->name('category');
 Route::put('/post/registro_financiero_guardar', 'PostController@registro_financiero_guardar')->name('posts.registro_financiero_guardar');
+Route::get('/home', 'HomeController@User_saldos') ->name('User_saldos');
 Auth::routes();
 Route::group(
     ['middleware' => ['role:user']],
@@ -27,6 +28,8 @@ Route::group(
     Route::get('/home', 'HomeController@index')
         ->name('home');
        // ->middleware('role:user');
+      
+      
 
     Route::resource('roles', 'RoleController');
     Route::resource('permissions', 'PermissionController');
@@ -35,6 +38,7 @@ Route::group(
     Route::resource('categories', 'CategoryController');
     Route::resource('tags', 'TagController');
     Route::resource('posts', 'PostController');
+    Route::resource('User_saldos', 'User_saldosController');
 
     // Menus
     Route::resource('menus', 'MenuController');
