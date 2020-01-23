@@ -108,7 +108,7 @@
                                         <tr>
                                         @foreach($miactividad as $act)
                                             <td class="txt-oflo">{{$act->nombre}}</td>                                            
-                                            <td class="txt-oflo">{{$act->fecha_movimiento}}</td>
+                                            <td class="txt-oflo">{{date('d-m-Y', strtotime($act->fecha_movimiento))}}</td>
                                             <td><span class="text-success">{{$act->monto_usd}}</span></td>
                                         
                                         </tr>
