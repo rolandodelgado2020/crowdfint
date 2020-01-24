@@ -72,6 +72,7 @@
                     </div>
                 </div>
                 @endforeach
+              
                 <!--/.row -->
                 <!--row -->
                 <!-- /.row -->
@@ -79,14 +80,16 @@
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div class="white-box">
                             <h3 class="box-title"></h3>
-                            <ul class="list-inline text-right">
-                                
+                            <ul class="list-inline text-left">
+                            <a href="" class="btn btn-sm btn-outline-light">
+				            <i class="fas fa-edit">MIS INVERSIONES</i> 	</a>
                                
                             </ul>
                             <div id="ct-visits" style="height: 150px;"></div>
                         </div>
                     </div>
                 </div>
+               
                 <!-- ============================================================== -->
                 <!-- table -->
                 <!-- ============================================================== -->

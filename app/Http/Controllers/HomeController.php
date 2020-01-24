@@ -47,6 +47,8 @@ class HomeController extends Controller
         ->select('user_saldos.disponible','user_saldos.saldo_dolar','user_saldos.saldo_invertido')
         ->join('users','users.id','=','user_saldos.id_user')
         ->where('users.id', $id)
+        ->orderBy('user_saldos.fecha_saldo','DESC')
+        ->take(1)
         ->get();
 
         $miactividad=DB::table('user_movimientos')
@@ -54,7 +56,10 @@ class HomeController extends Controller
         ->join('users','users.id','=','user_movimientos.id_user')
         ->join('tipo_movimiento','tipo_movimiento.id_tipo','=','user_movimientos.id_tipo_movimiento')
         ->where('users.id', $id)
+        ->orderBy('user_movimientos.fecha_movimiento','DESC')
+        ->take(2)
         ->get();
+
 
         return view('home',compact('data','miactividad'));
     }
