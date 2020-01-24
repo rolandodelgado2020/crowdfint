@@ -57,7 +57,7 @@ class HomeController extends Controller
         ->join('tipo_movimiento','tipo_movimiento.id_tipo','=','user_movimientos.id_tipo_movimiento')
         ->where('users.id', $id)
         ->orderBy('user_movimientos.fecha_movimiento','DESC')
-        ->take(2)
+        ->take(3)
         ->get();
 
 
