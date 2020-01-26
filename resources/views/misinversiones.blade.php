@@ -76,6 +76,14 @@
         </div>
     </div>
 </div>
+<div class="row">
+                        <div class="col-sm-12 pl-0">
+                            <p class="text-center">
+                                <a href="{{ route('home') }}" class="btn btn-sm btn-secondary" role="button">Volver</a>
+                                
+                            </p>
+                        </div>
+                    </div>
 @else
 <div class="alert alert-danger" role="alert">
     No tienes permisos para visualizar el tablero principal.
