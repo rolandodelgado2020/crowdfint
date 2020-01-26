@@ -81,7 +81,7 @@
                         <div class="white-box">
                             <h3 class="box-title"></h3>
                             <ul class="list-inline text-left">
-                            <a href="" class="btn btn-sm btn-outline-light">
+                            <a href="{{ route('home.misinversiones',$id) }}" class="btn btn-sm btn-outline-light">
 				            <i class="fas fa-edit">MIS INVERSIONES</i> 	</a>
                                
                             </ul>
@@ -137,5 +137,10 @@
 <div class="alert alert-danger" role="alert">
     No tienes permisos para visualizar el tablero principal.
 </div>
+@endcan
+
+
+@can('home.misinversiones')
+
 @endcan
 @stop

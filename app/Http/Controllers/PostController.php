@@ -40,6 +40,7 @@ class PostController extends Controller
         $this->middleware('permission:posts.payment', ['only' => ['payment']]);
         $this->middleware('permission:posts.registro_financiero', ['only' => ['registro_financiero']]);
         $this->middleware('permission:posts.registro_financiero_guardar', ['only' => ['registro_financiero_guardar']]);
+   
     }
 
     /**

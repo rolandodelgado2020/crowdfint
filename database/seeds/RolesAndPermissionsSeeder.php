@@ -25,6 +25,11 @@ class RolesAndPermissionsSeeder extends Seeder
                 'protected'     => 0
             ],
             [
+                'name'          => 'home.misinversiones',
+                'description'   => 'Tablero',
+                'protected'     => 0
+            ],
+            [
                 'name'          => 'categories.list',
                 'description'   => 'Mostrar categorías',
                 'protected'     => 0
@@ -244,5 +249,7 @@ class RolesAndPermissionsSeeder extends Seeder
         // Assign created permissions
         Role::find(2)->givePermissionTo('dashboard.view');
         Role::find(3)->givePermissionTo('dashboard.view');
+        Role::find(3)->givePermissionTo('home.misinversiones');
+        Role::find(2)->givePermissionTo('home.misinversiones');
     }
 }

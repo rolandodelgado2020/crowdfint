@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Builder;
 use App\User_saldos;
+use App\Misinversiones;
 use DB;
 class HomeController extends Controller
 {
@@ -19,6 +20,8 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('permission:home.misinversiones', ['only' => ['misinversiones']]);
+       
     }
     public function Saldo()
     {
@@ -39,6 +42,17 @@ class HomeController extends Controller
         ->get();
 
         //return view('home');
+    }
+    public function misinversiones(int $id){
+        
+        $misinversiones=DB::table('user_proyecto_invertido')
+        ->select('posts.title','user_proyecto_invertido.id_user','user_proyecto_invertido.id_post','user_proyecto_invertido.dinero_invertido','user_proyecto_invertido.fecha_inversion')
+        ->join('users','users.id','=','user_proyecto_invertido.id_user')
+        ->join('posts','posts.id','=','user_proyecto_invertido.id_post')
+        ->where('users.id', $id)
+        ->orderBy('user_proyecto_invertido.fecha_inversion','DESC')
+         ->get();
+        return view('misinversiones',compact('misinversiones'));
     }
     public function index()
     {
@@ -61,7 +75,9 @@ class HomeController extends Controller
         ->get();
 
 
-        return view('home',compact('data','miactividad'));
+
+
+        return view('home',compact('data','miactividad','id'));
     }
     
 }

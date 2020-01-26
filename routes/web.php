@@ -19,6 +19,7 @@ Route::get('/post/tag/{tag}', 'BlogController@tag')->name('tag');
 Route::get('/post/category/{category}', 'BlogController@category')->name('category');
 Route::put('/post/registro_financiero_guardar', 'PostController@registro_financiero_guardar')->name('posts.registro_financiero_guardar');
 Route::get('/home', 'HomeController@User_saldos') ->name('User_saldos');
+Route::get('/home/misinversiones/{id}', 'HomeController@misinversiones') ->name('home.misinversiones');
 Auth::routes();
 Route::group(
     ['middleware' => ['role:user']],
@@ -28,8 +29,7 @@ Route::group(
     Route::get('/home', 'HomeController@index')
         ->name('home');
        // ->middleware('role:user');
-      
-      
+     
 
     Route::resource('roles', 'RoleController');
     Route::resource('permissions', 'PermissionController');
