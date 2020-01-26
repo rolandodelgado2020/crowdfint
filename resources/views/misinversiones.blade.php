@@ -82,8 +82,4 @@
 </div>
 @endcan
 
-
-@can('home.misinversiones')
-
-@endcan
 @stop
