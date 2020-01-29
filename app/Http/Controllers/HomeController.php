@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Builder;
 use App\User_saldos;
-use App\Misinversiones;
 use DB;
 class HomeController extends Controller
 {
@@ -20,6 +19,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('permission:home.miactividad', ['only' => ['miactividad']]);
         $this->middleware('permission:home.misinversiones', ['only' => ['misinversiones']]);
        
     }
@@ -41,7 +41,22 @@ class HomeController extends Controller
         ->where('users.id', $id)
         ->get();
 
-        //return view('home');
+        return view('home');
+    }
+    public function miactividad()
+    {
+        //Auth::user()->getAllPermissions();
+
+        $id=5;
+        $miactividad=DB::table('user_movimientos')
+        ->select('tipo_movimiento.nombre','user_movimientos.id_tipo_movimiento','user_movimientos.fecha_movimiento','user_movimientos.monto_usd')
+        ->join('users','users.id','=','user_movimientos.id_user')
+        ->join('tipo_movimiento','tipo_movimiento.id_tipo','=','user_movimientos.id_tipo_movimiento')
+        ->where('users.id', $id)
+        ->orderBy('user_movimientos.fecha_movimiento','DESC')        
+        ->get();
+
+        return view('miactividad',compact('miactividad'));
     }
     public function misinversiones(int $id){
         

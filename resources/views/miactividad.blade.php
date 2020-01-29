@@ -1,10 +1,10 @@
 @extends('layouts.dashboard')
 
-@section('page_title', 'Tablero - Mis Inversiones')
+@section('page_title', 'Mi Actividad')
 
 @section('title_icon_class', 'fas fa-tachometer-alt')
 
-@section('module_title', 'Mis Inversiones')
+@section('module_title', 'Mi Actividad')
 
 
 
@@ -26,7 +26,7 @@
     <!-- color CSS -->
     <link href="css/colors/default.css" id="theme" rel="stylesheet">
 @section('content')
-@can('dashboard.view')
+
 <div id="page-wrapper">
     
             <div class="container-fluid">                
@@ -39,23 +39,23 @@
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-sm-12">
                         <div class="light-box">                            
-                            <h3 class="box-title"> </h3>
+                            <h3 class="box-title"></h3>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead>
                                         <tr>
                                             
-                                            <th>Proyecto</th>                                            
+                                        <th>Movimiento</th>                                            
                                             <th>Fecha</th>
-                                            <th>Monto Invertido</th>
+                                            <th>Monto</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                        @foreach($misinversiones as $mi)
-                                            <td class="txt-oflo">{{$mi->title}}</td>                                            
-                                            <td class="txt-oflo">{{date('d-m-Y', strtotime($mi->fecha_inversion))}}</td>
-                                            <td><span class="text-success">U$D {{$mi->dinero_invertido}}</span></td>
+                                        @foreach($miactividad as $act)
+                                            <td class="txt-oflo">{{$act->nombre}}</td>                                            
+                                            <td class="txt-oflo">{{date('d-m-Y', strtotime($act->fecha_movimiento))}}</td>
+                                            <td><span class="text-success">{{$act->monto_usd}}</span></td>
                                         
                                         </tr>
                                         @endforeach
@@ -84,10 +84,7 @@
                             </p>
                         </div>
                     </div>
-@else
-<div class="alert alert-danger" role="alert">
-    No tienes permisos para visualizar el tablero principal.
-</div>
-@endcan
+
+
 
 @stop

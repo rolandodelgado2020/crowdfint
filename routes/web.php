@@ -19,7 +19,9 @@ Route::get('/post/tag/{tag}', 'BlogController@tag')->name('tag');
 Route::get('/post/category/{category}', 'BlogController@category')->name('category');
 Route::put('/post/registro_financiero_guardar', 'PostController@registro_financiero_guardar')->name('posts.registro_financiero_guardar');
 Route::get('/home', 'HomeController@User_saldos') ->name('User_saldos');
+Route::get('/home/miactividad', 'HomeController@miactividad') ->name('miactividad');
 Route::get('/home/misinversiones/{id}', 'HomeController@misinversiones') ->name('home.misinversiones');
+
 Auth::routes();
 Route::group(
     ['middleware' => ['role:user']],
@@ -27,8 +29,8 @@ Route::group(
     function () {
     // Dashboard
     Route::get('/home', 'HomeController@index')
-        ->name('home');
-       // ->middleware('role:user');
+        ->name('home')
+        ->middleware('role:user');
      
 
     Route::resource('roles', 'RoleController');
@@ -39,6 +41,7 @@ Route::group(
     Route::resource('tags', 'TagController');
     Route::resource('posts', 'PostController');
     Route::resource('User_saldos', 'User_saldosController');
+    Route::resource('user', 'User_saldosController');
 
     // Menus
     Route::resource('menus', 'MenuController');
@@ -47,4 +50,10 @@ Route::group(
     Route::post('/menus/{menu}/item/', 'MenuItemController@store')->name('menus.item.add');
     Route::put('/menus/{menu}/item/', 'MenuItemController@update')->name('menus.item.update');
     Route::delete('/menus/{menu}/item/{id}', 'MenuItemController@destroy')->name('menus.item.destroy');
+
+    Route::get('/home/miactividad', 'HomeController@miactividad') ->name('miactividad');
+   
+Route::get('/home/misinversiones/{id}', 'HomeController@misinversiones') ->name('home.misinversiones');
+
+
 });
