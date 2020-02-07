@@ -129,11 +129,26 @@ class MenuItem extends Model
             'menu_id' => $menu_id,
             'title'   => 'Mostrar Publicaciones',
             'url'     => '',
-            'route'   => 'posts.index',
+            'route'   => 'posts.list',
             
         ]);
         if (!$ProyectosmenuItem->exists) {
             $ProyectosmenuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'fas fa-newspaper',
+                'parent_id'  => null,
+                'order'      => 2,
+            ])->save();
+        }
+        $miactividadmenuItem = MenuItem::firstOrNew([            
+            'menu_id' => $menu_id,
+            'title'   => 'Mi Actividad',
+            'url'     => '',
+            'route'   => 'miactividad',
+            
+        ]);
+        if (!$miactividadmenuItem->exists) {
+            $miactividadmenuItem->fill([
                 'target'     => '_self',
                 'icon_class' => 'fas fa-newspaper',
                 'parent_id'  => null,

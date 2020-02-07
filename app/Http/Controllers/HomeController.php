@@ -45,9 +45,7 @@ class HomeController extends Controller
     }
     public function miactividad()
     {
-        //Auth::user()->getAllPermissions();
-
-        $id=5;
+        $id=Auth::user()->id;       
         $miactividad=DB::table('user_movimientos')
         ->select('tipo_movimiento.nombre','user_movimientos.id_tipo_movimiento','user_movimientos.fecha_movimiento','user_movimientos.monto_usd')
         ->join('users','users.id','=','user_movimientos.id_user')

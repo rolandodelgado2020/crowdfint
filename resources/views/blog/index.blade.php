@@ -325,51 +325,7 @@
     <!-- end s-clients -->
 
 
-    <!-- contact
-    ================================================== -->
-    <section id="contact" class="s-contact">
-
-        <div class="overlay"></div>
-        <div class="contact__line"></div>
-
-        <div class="row section-header" data-aos="fade-up">
-            <div class="col-full">
-                <h3 class="subhead">Empezá</h3>
-                <h1 class="display-2 display-2--light">Completa la solicitud</h1>
-            </div>
-        </div>
-
-        <div class="row contact-content" data-aos="fade-up">
-
-            <div class="contact-primary">
-
-                <h3 class="h6">Regístrate</h3>
-
-                <form name="contactForm" id="contactForm" action="" novalidate="novalidate">
-                    <fieldset>
-
-                    <div class="form-field">
-                        <input name="email" type="email" id="correo" style="font-size:20px;" placeholder="Tu correo electrónico" value="" required="" aria-required="true" class="full-width">
-                    </div>
-                    <div class="form-field">
-                        <input name="password" type="password" id="password" style="font-size:20px;" placeholder="Tu contraseña" minlength="6" value="" required="" aria-required="true" class="full-width">
-                    </div>
-                    <div class="form-field">
-                        <button onclick="btnsign()" class="full-width btn--primary">Regístrate</button>
-
-                    </div>
-                    <div class="form-field">
-                        <!-- Crear pagina de ingreso -->
-                        <button class="full-width btn--stroke" onclick="btnlogin()">Ingresa</button>
-                    </div>
-                    </fieldset>
-
-                    <p>
-                        <a href="Recuperar.html">¿Olvidaste tu contraseña?</a>
-                        </p>
-
-                </form>
-
+   
                 <div id="contenido"> </div>
 
                 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -377,51 +333,7 @@
                 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
             </div> <!-- end contact-primary -->
 
-            <div class="contact-secondary">
-                <div class="contact-info">
-
-                    <h3 class="h6 hide-on-fullwidth">Información de contacto</h3>
-
-                    <div class="cinfo">
-                        <h5>Donde estámos</h5>
-                        <p>
-                            540 NW ST STE 690<br>
-                            MIAMI, FLORIDA<br>
-                            ZP 33126
-                        </p>
-                    </div>
-
-                    <div class="cinfo">
-                        <h5>Escríbanos</h5>
-                        <p>
-                            <a href="mailto:info@crowdfint.com">info@crowdfint.com</a>
-                        </p>
-                    </div>
-
-                    <div class="cinfo">
-                        <h5>Contáctanos</h5>
-                        <p> WhatsApp: <a href="tel://+5492612591800">261 259 1800</a>
-                        </p>
-                    </div>
-
-                    <ul class="contact-social">
-                        <li>
-                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                        </li>
-
-                    </ul> <!-- end contact-social -->
-
-                </div> <!-- end contact-info -->
-            </div> <!-- end contact-secondary -->
-
-        </div> <!-- end contact-content -->
-
-    </section> <!-- end s-contact -->
-
-
+          
     <!-- footer
     ================================================== -->
     <footer>
@@ -438,14 +350,7 @@
 
             <div class="col-six tab-full right footer-subscribe">
 
-                <h4>CONTACTO</h4>
-                <p>Estamos para ayudarte, cualquier consulta la podes realizar a través de cualquiera de nuestros canales de comunicación.</p>
-                <span>
-                    <a href="mailto:info@crowdfint.com">info@crowdfint.com</a>
-                </span>
-                <span>
-                    y <a href="https://wa.me/15551234567">WhatsApp</a>
-                </span>
+               
             </div>
 
         </div> <!-- end footer-main -->
@@ -475,11 +380,7 @@
         <div class="pswp__bg"></div>
         <div class="pswp__scroll-wrap">
 
-            <div class="pswp__container">
-                <div class="pswp__item"></div>
-                <div class="pswp__item"></div>
-                <div class="pswp__item"></div>
-            </div>
+           
 
             <div class="pswp__ui pswp__ui--hidden">
                 <div class="pswp__top-bar">
@@ -508,22 +409,7 @@
     </div> <!-- end photoSwipe background -->
 
 
-    <!-- preloader
-    ================================================== -->
-    <div id="preloader">
-        <div id="loader">
-            <div class="line-scale-pulse-out">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Java Script
+       <!-- Java Script
     ================================================== -->
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/plugins.js"></script>
@@ -538,22 +424,9 @@
 
 
 @section('content')
-<div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
-        @if($posts->isEmpty())
-            <div class="post-preview">
-                <p>Aún no hay artículos para mostrar. 😔</p>
-            </div>
-        @else
-        @foreach ($posts as $post)
-       
-        <hr>
-        @endforeach
-        <!-- Pager -->
+
         <div class="clearfix">
         {{ $posts->links() }}
         </div>
-        @endif
-    </div>
-</div>
+
 @stop

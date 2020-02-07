@@ -67,7 +67,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
-                <p class="copyright text-muted">Copyright &copy; <script>var d = new Date(); document.write(d.getFullYear());</script> <a href="https://crowdfint.com/">CROWDFINT</a>. Todos los derechos reservados.</p>
+                <p class="copyright text-muted">Copyright &copy; <script>var d = new Date(); document.write(d.getFullYear());</script> <a>CROWDFINT</a>. Todos los derechos reservados.</p>
                 </div>
             </div>
         </div>
