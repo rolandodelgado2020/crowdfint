@@ -59,7 +59,7 @@ class HomeController extends Controller
     public function misinversiones(int $id){
         
         $misinversiones=DB::table('user_proyecto_invertido')
-        ->select('posts.title','user_proyecto_invertido.id_user','user_proyecto_invertido.id_post','user_proyecto_invertido.dinero_invertido','user_proyecto_invertido.fecha_inversion')
+        ->select('posts.title','posts.fecha_inicio','posts.fecha_finalizacion','user_proyecto_invertido.id_user','user_proyecto_invertido.id_post','user_proyecto_invertido.dinero_invertido','user_proyecto_invertido.fecha_inversion')
         ->join('users','users.id','=','user_proyecto_invertido.id_user')
         ->join('posts','posts.id','=','user_proyecto_invertido.id_post')
         ->where('users.id', $id)

@@ -32,20 +32,7 @@
             <div class="container-fluid">                
                 <div class="row">
                 @foreach($data as $m)
-                    <div class="col-lg-4 col-sm-6 col-xs-12">
-                        <div class="white-box analytics-info">
-                            <h3 class="box-title">SALDO EN DOLARES</h3>
-                            <ul class="list-inline two-part">
-                                <li>                                 
-                                    <li class="text-center">
-                                    <li  class="box-title"><h3 class="box-title text-success"> U$D {{$m->saldo_dolar}} </h3></li>
-
-                                </li>
-                               
-                            </ul>
-                        </div>
-                    </div>          
-                    <div class="col-lg-4 col-sm-6 col-xs-12">
+                     <div class="col-lg-4 col-sm-6 col-xs-12">
               
                         <div class="white-box analytics-info">
                             <h3 class="box-title">SALDO INVERTIDO</h3>
@@ -73,6 +60,42 @@
                 </div>
                 @endforeach
               
+                <div class="row">
+                <div class="col-lg-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <h3 class="box-title"></h3>
+                            <ul class="list-inline text-left">
+                            <a class="nav-link nav-user-img" href="{{ route('posts.index') }}" id="img2"  aria-haspopup="true" aria-expanded="false"><img  src="{{ asset('/img/invertir.png') }}" alt="INVERTIR" class="user-avatar-xl rounded-circle"></a>
+                            <li class="text-left">Invertir </li>
+                           
+                            </ul>
+                            <div id="ct-visits" style="height: 30px;"></div>
+                        </div>
+                </div>
+                 <div class="col-lg-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <h3 class="box-title"></h3>
+                            <ul class="list-inline text-left">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{ asset('/img/transferir.png') }}" alt="INVERTIR" class="user-avatar-xl rounded-circle"></a>
+                            <li class="text-left">Transferir </li>
+                           
+                            </ul>
+                            
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <h3 class="box-title"></h3>
+                            <ul class="list-inline text-left">
+                            <a class="nav-link nav-user-img" href="#" id="{{ route('posts.list') }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{ asset('/img/retirar.png') }}" alt="INVERTIR" class="user-avatar-xl rounded-circle"></a>
+                            <li class="text-left">Retirar</li>
+                           
+                            </ul>
+                            
+                        </div>
+                    </div>
+            </div>
+
                 <!--/.row -->
                 <!--row -->
                 <!-- /.row -->
@@ -82,10 +105,10 @@
                             <h3 class="box-title"></h3>
                             <ul class="list-inline text-left">
                             <a href="{{ route('home.misinversiones',$id) }}" class="btn btn-sm btn-outline-light">
-				            <i class="fas fa-edit">MIS INVERSIONES</i> 	</a>
+				            <i class="fas fa-edit">MIS PROYECTOS</i> 	</a>
                                
                             </ul>
-                            <div id="ct-visits" style="height: 150px;"></div>
+                            <div id="ct-visits" style="height: 50px;"></div>
                         </div>
                     </div>
                 </div>

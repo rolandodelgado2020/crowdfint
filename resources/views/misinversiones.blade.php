@@ -45,15 +45,19 @@
                                     <thead>
                                         <tr>
                                             
-                                            <th>Proyecto</th>                                            
-                                            <th>Fecha</th>
+                                            <th>Proyecto</th> 
+                                            <th>Fecha de Inicio</th> 
+                                            <th>Fecha de Finalizacion</th>                                                                                        
+                                            <th>Fecha de Inversion</th>
                                             <th>Monto Invertido</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                         @foreach($misinversiones as $mi)
-                                            <td class="txt-oflo">{{$mi->title}}</td>                                            
+                                            <td class="txt-oflo">{{$mi->title}}</td>      
+                                            <td class="txt-oflo">{{$mi->fecha_inicio}}</td>    
+                                            <td class="txt-oflo">{{$mi->fecha_finalizacion}}</td>                                         
                                             <td class="txt-oflo">{{date('d-m-Y', strtotime($mi->fecha_inversion))}}</td>
                                             <td><span class="text-success">U$D {{$mi->dinero_invertido}}</span></td>
                                         
