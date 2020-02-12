@@ -20,7 +20,7 @@ Route::get('/post/tag/{tag}', 'BlogController@tag')->name('tag');
 Route::get('/post/category/{category}', 'BlogController@category')->name('category');
 Route::put('/post/registro_financiero_guardar', 'PostController@registro_financiero_guardar')->name('posts.registro_financiero_guardar');
 Route::get('/home', 'HomeController@User_saldos') ->name('User_saldos');
-Route::get('/home/miactividad', 'HomeController@miactividad') ->name('miactividad');
+Route::get('/home/miactividad', 'HomeController@miactividad') ->name('home.miactividad');
 Route::get('/home/misinversiones/{id}', 'HomeController@misinversiones') ->name('home.misinversiones');
 
 Auth::routes();

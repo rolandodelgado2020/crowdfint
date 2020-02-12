@@ -144,7 +144,7 @@ class MenuItem extends Model
             'menu_id' => $menu_id,
             'title'   => 'Mi Actividad',
             'url'     => '',
-            'route'   => 'miactividad',
+            'route'   => 'home.miactividad',
             
         ]);
         if (!$miactividadmenuItem->exists) {
