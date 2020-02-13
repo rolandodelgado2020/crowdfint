@@ -131,7 +131,7 @@
     </div>
 @else
 <div class="alert alert-danger" role="alert">
-    No tienes permiso para editar publicaciones.
+    No tienes permiso para editar.
 </div>
 @endcan
 @stop
